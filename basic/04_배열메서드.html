@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery - 배열 메서드</title>
+    <script src="./js/jquery-1.12.4.js"></script>
+</head>
+<body>
+    <h1>배열관련메서드</h1>
+
+    <ul id="menu1">
+        <li>내용1-1</li>
+        <li>내용1-2</li>
+        <li>내용1-3</li>
+    </ul>
+    <ul id="menu2">
+        <li>내용2-1</li>
+        <li>내용2-2</li>
+        <li>내용2-3</li>
+    </ul>
+
+    <script>
+        {
+            //each
+            let books = [
+                {title: 'html', price: 2000},
+                {title: 'css'},
+                {title: 'javascript'},
+            ]
+
+            // idx는 순서, item은 하나하나를 의미
+            $(books).each(function(idx, item) {
+                console.log(idx + ':' + item.title)
+            })
+
+            $.each(books, function(idx, item) {
+                console.log(idx + ':' + item.title)
+            })
+
+            // item을 달러로 감싸줘야함(메서드이기 떄문에 제이쿼리 객체로)
+            $('#menu1 li').each(function(idx,item) {
+                console.log(idx + ':'  + $(item).text());
+            })
+
+            $.each($('#menu li'), function(i) {
+                console.log(idx + ':' + $(this).text());
+            })
+        }
+
+
+    </script>
+
+
+    <script>
+       //map
+       
+
+       let user = [
+            { name: '김대리', city: '서울'},
+            { name: '박대리', city: '부산'},
+            { name: '이대리', city: '서울'},
+            { name: '최대리', city: '제주'},
+        ]
+
+        let count = [1,2,3,4,5]
+        let count2 = {name : 'Alice'}
+
+        let newUser = $.map(user, function(item) {
+            if(item.city === '서울') return item
+        })
+
+        console.log(newUser)
+
+        let c = $.inArray(4, count)  // 데이타를 찾아서 인덱스 반환
+        console.log(c);
+        console.log($.isArray(count)) // 배열이라 true
+        console.log($.isArray(count2))// 배열이 아니라서 false
+
+        let d = $.merge(user, count) // 두 배열 합치기
+        console.log(d);
+
+        var idx = $('#menu1 li').last().index()
+        console.log(idx);
+
+    </script>
+
+
+</body>
+</html>
