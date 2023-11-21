@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <!-- slick slider의 깃허브에서 가져 옴 -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>  <!--타입은 지워도 됨, 밑에꺼도 마찬가지, 실무 코드면 깔끔하게 타입 지울듯 -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     
     <link rel="stylesheet" href="../css/slide.css">
@@ -18,6 +18,7 @@
     <!-- 제이쿼리가 먼저 들어오고, 슬릭이 들어오는 순서로 해야 함 -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     
 </head>
 <body>
@@ -64,15 +65,15 @@
     </div>
 
     <section>
-        <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+        <h2 class="headline">Lorem ipsum dolor sit amet consectetur.</h2>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, temporibus repellendus sed iure rem architecto quaerat sit laborum aliquam cupiditate ab dolor, minus dignissimos totam cumque reiciendis culpa aut molestiae obcaecati alias. Cupiditate similique dicta sequi adipisci eaque natus, quam nihil porro eos vero, non totam placeat officia illum veritatis. Officia expedita fuga perspiciatis suscipit adipisci accusamus, voluptate similique autem!
         </p>
-        <ul>
-            <li><img src="../../images/img_01.jpg" alt=""></li>
-            <li><img src="../../images/img_02.jpg" alt=""></li>
-            <li><img src="../../images/img_03.jpg" alt=""></li>
-            <li><img src="../../images/img_04.jpg" alt=""></li>
+        <ul class="cards">
+            <li class="card1"><img src="../../images/img_01.jpg" alt=""></li>
+            <li class="card2"><img src="../../images/img_02.jpg" alt=""></li>
+            <li class="card3"><img src="../../images/img_03.jpg" alt=""></li>
+            <li class="card4"><img src="../../images/img_04.jpg" alt=""></li>
         </ul>
         <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus, illum? Facilis commodi repellat eius quod itaque officiis odit natus libero numquam, similique nam dolor veniam iure, modi a saepe dolorum adipisci fugit! Voluptate, recusandae! Sed, unde. Repellendus aperiam reiciendis accusantium neque obcaecati saepe praesentium consequatur? Ullam quas impedit omnis odio?
@@ -86,7 +87,7 @@
                 <img src="../../images/img_04_b.jpg" alt="">
             </div>
             <div class="control">
-                <div class="slide_counter">1 / 4</div>
+                <div class="slide_count">1 / 4</div>
                 <div class="btns">
                     <i class="xi-angle-left"></i>
                     <i class="xi-pause"></i>
@@ -110,7 +111,7 @@
             </p>
         </section>
 
-        <div class="slide_container">
+        <div class="slider_container">
             <ul class="slide_03">
                 <li><img src="../../images/img_01.jpg" alt=""></li>
                 <li><img src="../../images/img_02.jpg" alt=""></li>
@@ -139,6 +140,7 @@
     <script>
         $(function(){
             // 이런식으로, 트루 폴스로 추가기능
+            // 슬라이드1
             $('.slide_01').slick({
                 dots:true,
                 autoplay:true,
@@ -146,7 +148,69 @@
                 nextArrow: $('.next'),
                 speed: 2000
             })
+        
+
+            ScrollReveal().reveal('.headline');
+
+            //스크롤리빌
+            ScrollReveal().reveal('.card1', {
+                distance: '50px',
+                orgin: 'left',
+                easing: 'ease-in-out'
+            });
+
+            ScrollReveal().reveal('.card2', {
+                distance: '50px',
+                orgin: 'right',
+                easing: 'ease-in-out'
+            });
+
+            ScrollReveal().reveal('.card3', {
+                distance: '50px',
+                orgin: 'top',
+                easing: 'ease-in-out',
+                delay: 500
+            });
+
+            ScrollReveal().reveal('.card4', {
+                distance: '50px',
+                orgin: 'bottom',
+                easing: 'ease-in-out',
+                delay: 1000
+            });
+
+            // // 슬라이드 2
+            // $('.slide_02').slick({
+            //     autoplay: true,
+            //     prevArrow: $('.xi-angle-left'),
+            //     nextArrow: $('.xi-angle-right')
+            // })
+
+            // On before slide change
+            $('.slide_02').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+            console.log(event);
+
+                $('.slide_count').text(`${nextSlide + 1} / ${slick.slideCount}`)
+
+            }).slick({
+                autoplay: true,
+                prevArrow: $('.xi-angle-left'),
+                nextArrow: $('.xi-angle-right'),
+                autoplaySpeed: 3000
+            });
+
+            $('.xi-pause').on('click', function(){
+                if($(this).hasClass('xi-pause')) {
+                    $(this).removeClass('xi-pause').addClass('xi-play')
+                    $('.slide_02').slick('slickPause')
+                } else {
+                    $(this).removeClass('xi-play').addClass('xi-pause')
+                    $('.slide_02').slick('slickPlay')
+                }
+            })
+
         })
+
     </script>
 
 
