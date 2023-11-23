@@ -1,7 +1,8 @@
 <header>
     <div class="logo"><a href="#">가나다</a></div>
     <ul class="gnb">
-        <li class="active"><a href="./main.html">홈</a></li>
+        <!-- 클래스나 on을 사용함 근데 헤더에 이런걸로 할때는 보통 on.  -->
+        <li><a href="./main.html">홈</a></li>
         <li><a href="./intro.html">소개</a></li>
         <li><a href="./service.html">서비스</a></li>
         <li><a href="https://daum.net" target="_blank">가치</a></li>
@@ -11,3 +12,21 @@
     </ul>
     <button>login</button>
 </header>
+
+<script>
+    var str = location.pathname
+    console.log(str)
+
+    if(str.includes('main')) {
+        $('.gnb li').eq(0).addClass('on')
+    }
+
+    if(str.includes('intro')) {
+        $('.gnb li').eq(1).addClass('on')
+    }
+
+    if(str.includes('service')) {
+        $('.gnb li').eq(2).addClass('on')
+    }
+
+</script>
