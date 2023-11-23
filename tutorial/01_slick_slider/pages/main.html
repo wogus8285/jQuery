@@ -19,28 +19,13 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
     
 </head>
 <body>
-
     <div class="container">
-        <div class="header_container">
-            <header>
-                <div class="logo"><a href="#">가나다</a></div>
-                <ul class="gnb">
-                    <li class="active"><a href="#">홈</a></li>
-                    <li><a href="#">소개</a></li>
-                    <li><a href="#">서비스</a></li>
-                    <li><a href="#">가치</a></li>
-                    <li><a href="#">홍보</a></li>
-                    <li><a href="#">투자</a></li>
-                    <li><a href="#">채용</a></li>
-                </ul>
-                <button>login</button>
-            </header>
-        </div>    
+        <div class="header_container"></div>    
     </div> 
-
 
     <div class="slider_container">
         <!-- slick slide 검색  -->
@@ -99,19 +84,22 @@
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam tempore ad minus at, iure incidunt officiis cumque. Repellendus voluptas qui dolor consequuntur similique eaque officiis earum dolorum sint aliquid. Magni libero minima ipsam, fuga voluptas vitae eaque deleniti? Esse rem corporis, enim, doloribus iste animi sit dolorem nihil optio asperiores accusamus porro error omnis? Consequuntur repellat vitae consectetur quaerat! Ea libero dicta harum voluptas magnam, ut fugiat debitis eaque ab in, non praesentium tempora iste? Ipsa rem fugit quaerat molestias.
         </p>
+    </section>
 
-        <div class="banner">
-            <p>안녕 JQuery</p>
-        </div>
+    <div class="banner">
+        <p>안녕 JQuery</p>
+    </div>
 
-        <section>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id, commodi. Soluta aperiam similique minima ad! Officia voluptas illum rem aut vitae mollitia similique pariatur, delectus odit, aliquam, fuga enim est consectetur laborum quidem aliquid. Esse fugit autem explicabo consequuntur blanditiis quidem fuga. Repellat eveniet at alias repellendus. Ipsa molestias vitae vero cupiditate provident unde deserunt voluptate iusto facilis, sint dolore corporis consequatur aspernatur, quod praesentium quisquam mollitia! Quia ea, amet dolores aliquam beatae debitis. Error harum ducimus autem cumque facere.
+    
+    <section>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id, commodi. Soluta aperiam similique minima ad! Officia voluptas illum rem aut vitae mollitia similique pariatur, delectus odit, aliquam, fuga enim est consectetur laborum quidem aliquid. Esse fugit autem explicabo consequuntur blanditiis quidem fuga. Repellat eveniet at alias repellendus. Ipsa molestias vitae vero cupiditate provident unde deserunt voluptate iusto facilis, sint dolore corporis consequatur aspernatur, quod praesentium quisquam mollitia! Quia ea, amet dolores aliquam beatae debitis. Error harum ducimus autem cumque facere.
 
-            </p>
-        </section>
+        </p>
+    </section>
 
-        <div class="slider_container">
+    <section>
+        <div class="slider_container slide3">
             <ul class="slide_03">
                 <li><img src="../../images/img_01.jpg" alt=""></li>
                 <li><img src="../../images/img_02.jpg" alt=""></li>
@@ -122,11 +110,14 @@
                 <li><img src="../../images/img_03.jpg" alt=""></li>
                 <li><img src="../../images/img_04.jpg" alt=""></li>
             </ul>
-            <div class="arrow">
+            <div class="slide03_arrows">
                 <i class="xi-long-arrow-left"></i>
                 <i class="xi-long-arrow-right"></i>
             </div>               
         </div>
+    </section>
+
+    <section>
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, vero quasi, tenetur iste voluptates nobis doloribus, veniam molestiae aliquid alias suscipit magni consequatur sint? Repudiandae expedita saepe factur aliquam nihil fugiat fugit voluptates! Rerum?
         </p>
@@ -139,6 +130,15 @@
     
     <script>
         $(function(){
+            //헤더inc
+            $('.header_container').load('../inc/header.html')
+
+            // 패럴렉스
+            $('.banner').parallax({
+                imageSrc: '../../images/slide_03.jpg',
+        });
+
+
             // 이런식으로, 트루 폴스로 추가기능
             // 슬라이드1
             $('.slide_01').slick({
@@ -209,9 +209,37 @@
                 }
             })
 
+            // 슬라이드 03
+            $('.slide_03').slick({
+                prevArrow: $('.xi-long-arrow-left'),
+                nextArrow: $('.xi-long-arrow-right'),
+                infinite: false,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+            })
+            $('.slide_03').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+              console.log(currentSlide);
+              if(currentSlide == 4){
+                $('.xi-long-arrow-left').css('opacity', 0.3)
+                $('.xi-long-arrow-right').css('opacity', 1)
+              } else {
+                $('.xi-long-arrow-left').css('opacity' , 1)
+                $('.xi-long-arrow-right').css('opacity' , 0.3)
+              }
+            })
+        
+
         })
 
     </script>
+
+<!-- jquery parallax plugin 검색하기 탑10? -->
+<!-- jquery parallax (이건 간단한거) 
+    ㄴ view on github 셋업 두번째거 복사해서 상단에 ㅂ복붙
+     ㄴ usage 에서 사용법 보기
+      ㄴ 비아 자바스크립트
+       ㄴ 
+-->
 
 
 </body>
