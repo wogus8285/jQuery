@@ -1,11 +1,32 @@
-# jquery 기본연습
+# jquery 기본 연습
+
+- mockaroo 목업데이타 사이트
+- https://www.mockaroo.com/
+
 
 ## jquery basic
-ddddddddddddd
-### 설명
+- animate()
+```
+$('.btn1').on('click', function() {
+            $('.text1').animate({marginLeft: 500, fontSize: 30}, 2000, function(){
+                alert('hello?')
+            })
+})
+```
+
+- fade()
+
+```
+        $('.btn1').on('click', function(){
+            $('.box').slideUp(1000, 'linear', function() {
+                $('.btn1').hide()
+                $('.btn2').show()
+            })
+        })
+```
+
+### 선택자
 
 - 기본선택자
 - 탐색선택자
 - 속성선택자
-
-리드미는 루트 파일에다가 만들어야 하는데 난 그거 안한듯 다시 해보자
