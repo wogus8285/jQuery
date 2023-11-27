@@ -47,7 +47,7 @@
 
     <div class="container">
         <div class="swiper swiper_02">
-            <div class="title_arer">
+            <div class="title_area">
                 <h2>신상품</h2>
                 <!-- <div class="arrows">
                     <i class="xi-angle-left"></i>
@@ -126,10 +126,15 @@
           
             const swiper2 = new Swiper('.swiper_02', {
                 slidesPerView: 4,
-                spaceBetween: 20,
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
+            spaceBetween: 20,
+
+            pagination: {
+                el: '.swiper-pagination',
+                type: "progressbar",
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
                     },
 
             })
