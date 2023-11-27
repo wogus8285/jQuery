@@ -18,7 +18,7 @@ h1{
     margin: 50px 0;
 }
 
-.swiper-slide{
+.swiper_01 .swiper-slide{
     height: 600px;
     display: flex;
     align-items: center;
@@ -27,22 +27,22 @@ h1{
     font-size: 80px;
 }
 
-.swiper-slide:first-child{
+.swiper_01 .swiper-slide:first-child{
     background-color: lightblue;
 }
 
-.swiper-slide:last-child{
+.swiper_01 .swiper-slide:last-child{
     background-color: lightgreen;
 }
 
-.swiper-button-next, .swiper-button-prev {
+.swiper_01 .swiper-button-next, .swiper_01 .swiper-button-prev {
     background-color: rgba(255 , 255, 255, 0.7);
     width: 50px;
     height: 50px;
     border-radius: 100px;
 } 
 
-.swiper-button-next:after, .swiper-button-prev:after {
+.swiper_01 .swiper-button-next:after, .swiper_01 .swiper-button-prev:after {
     font-family: swiper-icons;
     font-size: var(--swiper-navigation-size);
     text-transform: none!important;
@@ -54,3 +54,61 @@ h1{
     color: red;
     /* font-weight: bold; */
 } 
+
+
+
+/* 스와이퍼 2 */
+.container{
+    width: 1180px;
+    margin: 100px auto;
+}
+
+.title_area{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.swiper_02 {}
+
+.swiper_02 .photo{
+    width: 280px;
+    height: 280px;
+    background-color: #ddd;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper_02 .titles{
+    padding-top: 10px;
+}
+
+.swiper_02 .swiper-pagination{
+    top:initial;
+    bottom: 0;
+    /* background-color: #000; */
+}
+
+.swiper_02 .swiper-pagination-progressbar-fill{
+    background-color: #666;
+}
+
+.swiper_02 .swiper-button-next {
+    right: 0;
+    top: 20px;
+}
+.swiper_02 .swiper-button-prev {
+    left: initial;
+    right: 40px;
+    top: 20px;
+}
+
+.swiper_02 .swiper-button-next::after,
+.swiper_02 .swiper-button-prev::after {
+    font-size: 24px;
+    font-weight: bold;
+    color: #111;
+}
