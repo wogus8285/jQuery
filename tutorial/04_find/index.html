@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>jquery_find</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+</head>
+<body>
+
+        <div class="container">
+            <h1>find</h1>
+
+            <ul class="cards">
+                <li class="">
+                    <img src="../images/img_01.jpg" alt="">
+                    <p>this is title-01</p>
+                </li>
+                <li>
+                    <img src="../images/img_02.jpg" alt="">
+                    <p>this is title-02</p>
+                </li>
+                <li>
+                    <img src="../images/img_03.jpg" alt="">
+                    <p>this is title-03</p>
+                </li>
+            </ul>
+        </div>
+    
+
+        <script>
+            var items = $('.cards li')
+            var time = 700
+            console.log(items);
+
+            // '.' 으로 메서드를 연결해서 체이닝이라고 함
+            // 오히려 호버보다 이게 보기 쉬울수도?
+            items
+            .eq(0)
+            .mouseenter(function(){
+                // 애니메이트 앞에는 스탑 필수
+                // 애니메이트 뒤에는 시간 , 이징 , 콜백
+                $(this).find('p').stop().animate({opacity:1, bottom:0}, time)
+                $(this).addClass('active')
+            })
+            .mouseleave(function(){
+                $(this).find('p').stop().animate({opacity:0, bottom:-60}, time)
+                $(this).removeClass('active')
+            })
+            
+            items
+            .eq(1)
+            .mouseenter(function(){
+                // 애니메이트 앞에는 스탑 필수
+                // 애니메이트 뒤에는 시간 , 이징 , 콜백
+                $(this).find('p').stop().animate({opacity:1, bottom:0}, time)
+                $(this).addClass('active')
+            })
+            .mouseleave(function(){
+                $(this).find('p').stop().animate({opacity:0, bottom:0}, time)
+                $(this).removeClass('active')
+            })
+            
+            items
+            .eq(2)
+            .mouseenter(function(){
+                // 애니메이트 앞에는 스탑 필수
+                // 애니메이트 뒤에는 시간 , 이징 , 콜백
+                $(this).find('p').stop().animate({opacity:1, left:0}, time)
+                $(this).addClass('active')
+            })
+            .mouseleave(function(){
+                $(this).find('p').stop().animate({opacity:0, left: '-100%'}, time)
+                $(this).removeClass('active')
+            })
+
+
+
+        </script>
+</body>
+</html>
