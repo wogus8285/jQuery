@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>jquery - filter</title>
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+
+    <link rel="stylesheet" href="./style.css">
+    
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>filter</h1>
+    </div>
+
+    <div class="main">
+        <div class="btns">
+            <button data-id="all" class="active">all</button>
+            <button data-id="web">web</button>
+            <button data-id="ui">ui/ux</button>
+            <button data-id="js">js</button>
+        </div>
+
+        <ul class="list">
+            <li data-item="web">1 <span>web</span></li>
+            <li data-item="ui">2 <span>ui/ux</span></li>
+            <li data-item="web">3 <span>web</span></li>
+            <li data-item="web">4 <span>web</span></li>
+            <li data-item="js">5 <span>js</span></li>
+            <li data-item="ui">6 <span>ui/ux</span></li>
+            <li data-item="js">7 <span>js</span></li>
+            <li data-item="web">8 <span>web</span></li>
+            <li data-item="js">9 <span>js</span></li>
+        </ul>
+    </div>
+
+    <script>
+
+        var btns = $('.btns button')
+        var items = $('.list li')
+
+        btns.on('click', function(e){
+            btns.removeClass('active')
+            $(this).addClass('active')
+
+            // console.log(e);
+            // 콘솔로그로 개발자 소스에 들어가서 큐런트타겟 데이타 셋 아이디에서 볼 수 있는 걸 깨달음
+            // console.log(e.currentTarget.dataset.id);
+            // 진짜 나오는지 실험도 완료했으니 변수로 만들어준다.
+
+            var category = e.currentTarget.dataset.id
+
+            if( category === 'all') {
+                items.show()
+            } else {
+                // 잘 모르겠으면 jQuery 데이터 셋 선택자 검색하며 나올껄?
+                // items.hide().filter(`[data-item = ${category}]`).show()
+                
+                // 백팁이 제일 쉽지만 만약에 백틱을 안 쓴다면...
+                items.hide().filter('[data-item =' + category + ']').show()
+
+            }
+        })
+
+    </script>
+   
+      
+</body>
+</html>
