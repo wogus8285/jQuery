@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>jquery - swap logo</title>
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+
+    <link rel="stylesheet" href="./style.css">
+    
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <nav class="nav">
+                <div class="logo"><img src="../images/logo.svg" alt=""></div>
+                <ul class="gnb">
+                    <li><a href="#">소개</a></li>
+                    <li><a href="#">서비스</a></li>
+                    <li><a href="#">가치</a></li>
+                    <li><a href="#">홍보</a></li>
+                    <li><a href="#">투자</a></li>
+                    <li><a href="#">채용</a></li>
+                </ul>
+                <button>로그인</button>
+            </nav>
+        </header>
+
+        <section>
+            <h1>
+                Lorem, ipsum dolor sit amet consectetur 
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, temporibus quisquam rerum cumque, sunt molestiae, at sit dolores fugiat molestias maxime inventore aut. Incidunt rem alias id illo, beatae mollitia laborum nostrum magnam? Molestias magni cupiditate corrupti esse reprehenderit quasi illum. Commodi minus architecto non exercitationem dolorum accusantium iste at earum et sequi numquam ab ipsam error neque laudantium sit nostrum, vero eligendi odit expedita! Exercitationem aliquid voluptatem eaque aperiam autem eius perferendis natus dicta molestiae, alias voluptas aut cumque? Expedita facilis cupiditate, temporibus pariatur reprehenderit beatae molestiae et saepe earum nostrum, in blanditiis est. Porro modi adipisci voluptatum fugiat!
+            </p>
+        </section>
+
+        <section>
+            <h1>
+                Lorem, ipsum dolor sit amet consectetur 
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, temporibus quisquam rerum cumque, sunt molestiae, at sit dolores fugiat molestias maxime inventore aut. Incidunt rem alias id illo, beatae mollitia laborum nostrum magnam? Molestias magni cupiditate corrupti esse reprehenderit quasi illum. Commodi minus architecto non exercitationem dolorum accusantium iste at earum et sequi numquam ab ipsam error neque laudantium sit nostrum, vero eligendi odit expedita! Exercitationem aliquid voluptatem eaque aperiam autem eius perferendis natus dicta molestiae, alias voluptas aut cumque? Expedita facilis cupiditate, temporibus pariatur reprehenderit beatae molestiae et saepe earum nostrum, in blanditiis est. Porro modi adipisci voluptatum fugiat!
+            </p>
+        </section>
+
+        <section>
+            <h1>
+                Lorem, ipsum dolor sit amet consectetur 
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, temporibus quisquam rerum cumque, sunt molestiae, at sit dolores fugiat molestias maxime inventore aut. Incidunt rem alias id illo, beatae mollitia laborum nostrum magnam? Molestias magni cupiditate corrupti esse reprehenderit quasi illum. Commodi minus architecto non exercitationem dolorum accusantium iste at earum et sequi numquam ab ipsam error neque laudantium sit nostrum, vero eligendi odit expedita! Exercitationem aliquid voluptatem eaque aperiam autem eius perferendis natus dicta molestiae, alias voluptas aut cumque? Expedita facilis cupiditate, temporibus pariatur reprehenderit beatae molestiae et saepe earum nostrum, in blanditiis est. Porro modi adipisci voluptatum fugiat!
+            </p>
+        </section>
+     
+    </div>
+
+    <script>
+        // 펑션에 매개변수 등 넣는 방법이 중요한듯
+        $(window).scroll(function(){
+            var scrollValue = $(window).scrollTop()
+            console.log(scrollValue);
+
+            function logoSwap(urlllll) {
+                $('.logo').find('img').attr('src', urlllll)
+            }
+
+            if(scrollValue > 500) {
+                $('.nav').addClass('small')
+                // $('.logo').find('img').attr('src' , '../images/logo_s.svg')
+                logoSwap('../images/logo_s.svg')
+            } else {
+                $('.nav').removeClass('small')
+                // $('.logo').find('img').attr('src' , '../images/logo.svg')
+                logoSwap('../images/logo.svg')
+            }
+        })
+    </script>
+ 
+      
+</body>
+</html>
